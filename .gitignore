@@ -1,2 +1,5 @@
 /ansible/hosts
 /ansible/site.retry
+.DS_Store
+k3s.yaml
+
