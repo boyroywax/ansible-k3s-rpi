@@ -3,9 +3,9 @@
   locale_gen:
     name: en_US.UTF-8
     state: present
-
-- name: Set hostname to inventory hostname
-  hostname: name={{inventory_hostname}}
+  
+# - name: Set hostname to inventory hostname
+#   hostname: name={{inventory_hostname}}
 
 - name: Update apt cache
   apt:

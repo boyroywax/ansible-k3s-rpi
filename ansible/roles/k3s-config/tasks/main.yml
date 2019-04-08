@@ -1,8 +1,8 @@
 ---
-# - name: Wait until node token is generated
-#   wait_for:
-#     path: /var/lib/rancher/k3s/server/node-token
-#   run_once: true
+- name: Wait until node token is generated
+  wait_for:
+    path: /var/lib/rancher/k3s/server/node-token
+  run_once: true
 
 - name: Get node token
   slurp:
@@ -21,7 +21,7 @@
 
 - name: Set server address
   set_fact:
-    k3s_server_address: "https://{{ inventory_hostname }}:6443"
+    k3s_server_address: "https:// {{ "ansible_facts["eth0"]["ipv4"]["address"]" }} :6443"
   run_once: yes
 
 - name: Print server address

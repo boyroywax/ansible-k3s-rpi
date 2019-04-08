@@ -10,7 +10,7 @@
   replace:
     path: /etc/systemd/system/k3s-agent.service
     regexp: '^ExecStart=/usr/local/bin/k3s server$'
-    replace: 'ExecStart=/usr/local/bin/k3s agent -s "{{ k3s_server_address}}" -t "{{ k3s_cluster_token }}"'
+    replace: 'ExecStart=/usr/local/bin/k3s agent -s "{{ k3s_server_address }}" -t "{{ k3s_cluster_token }}"'
 
 - name: Reload systemd daemon to ensure latest service config
   systemd:
