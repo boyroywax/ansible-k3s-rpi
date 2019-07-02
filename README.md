@@ -8,8 +8,8 @@
 
 # Minimal Initial HW Provisioning
 - Set-up your RPi's with the latest Raspbian Image. Stretch and Buster work fine. 
-- Give your RPi's some passowords and hostnames, use the "sudo raspi-config" command dummy.
-- You gotta copy some ssh keys over. ```ssh-copy-id username@pi_hostname.address``` 
+- Give your RPi's some passowords and hostnames, use the "sudo raspi-config" command.
+- Copy some ssh keys over. ```ssh-copy-id username@pi_hostname.address``` 
 
 # K3S
-- szet agents and server options in service files.
+- set agents and server options in service files.
