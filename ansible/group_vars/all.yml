@@ -1,4 +1,4 @@
-k3s_version: v0.6.1
+k3s_version: v0.9.0
 ansible_user: pi
 full_clean_install: True # Removes files from /var/lib/rancher/k3s
 systemd_dir: /etc/systemd/system
