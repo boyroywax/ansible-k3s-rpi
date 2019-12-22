@@ -52,10 +52,10 @@
     path: /var/lib/rancher/k3s/server
     mode: "{{ p.stat.mode }}"
 
-- name: Replace localhost in k3s.yaml with k3s master IP
+- name: Replace 127.0.0.1 in k3s.yaml with k3s master IP
   replace:
     path: /etc/rancher/k3s/k3s.yaml
-    regexp: 'localhost'
+    regexp: '127.0.0.1'
     replace: '{{ master_ip }}'
 
 - name: Retrieve kubectl config file from the master server.
