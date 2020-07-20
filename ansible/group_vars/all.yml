@@ -1,5 +1,5 @@
-k3s_version: v1.17.2+k3s1
+k3s_version: v1.18.6+k3s1
 ansible_user: pi
-full_clean_install: True # Removes files from /var/lib/rancher/k3s
+full_clean_install: True # BOOLEAN - Removes files from /var/lib/rancher/k3s
 systemd_dir: /etc/systemd/system
 master_ip: "{{ hostvars[groups['master'][0]]['ansible_host'] | default(groups['master'][0]) }}"

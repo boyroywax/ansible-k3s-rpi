@@ -34,13 +34,6 @@
   async: 6400
   poll: 5
 
-- name: Delete k3s-server service if already present
-  file:
-    path: "{{ systemd_dir }}/k3s.service"
-    state: absent
-  async: 6400
-  poll: 5
-
 - name: Reload systemd daemon to ensure latest service config
   systemd:
     daemon_reload: yes
@@ -49,9 +42,8 @@
 
 - name: reboot to disable remaining k3s processes
   reboot:
+    reboot_timeout: 1200
   when: ( full_clean_install == True )
-  async: 6400
-  poll: 5
 
 - name: Delete previous k3s directory
   file:
