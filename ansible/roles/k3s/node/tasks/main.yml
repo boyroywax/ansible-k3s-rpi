@@ -27,4 +27,4 @@
 
 - name: Reboot pi
   reboot:
-
+    reboot_timeout: 1200
