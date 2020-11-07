@@ -1,4 +1,8 @@
 ---
+- name: reboot to disable remaining k3s processes
+  reboot:
+    reboot_timeout: 1200
+  when: ( full_clean_install == True )
 
 - name: Copy K3s service file
   register: k3s_service

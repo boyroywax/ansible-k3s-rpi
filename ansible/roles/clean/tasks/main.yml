@@ -40,10 +40,10 @@
   async: 6400
   poll: 5
 
-- name: reboot to disable remaining k3s processes
-  reboot:
-    reboot_timeout: 1200
-  when: ( full_clean_install == True )
+# - name: reboot to disable remaining k3s processes
+#   reboot:
+#     reboot_timeout: 1200
+#   when: ( full_clean_install == True )
 
 - name: Delete previous k3s directory
   file:

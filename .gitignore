@@ -2,4 +2,5 @@
 /ansible/site.retry
 .DS_Store
 /ansible/files/
+/ansible-odroid
 

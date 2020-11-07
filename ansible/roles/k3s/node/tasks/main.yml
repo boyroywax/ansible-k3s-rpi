@@ -25,6 +25,4 @@
     enabled: yes
     state: started
 
-- name: Reboot pi
-  reboot:
-    reboot_timeout: 1200
+
