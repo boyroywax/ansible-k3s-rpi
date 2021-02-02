@@ -1,0 +1,33 @@
+---
+
+- name: Update apt cache and upgrade
+  apt:
+    update_cache: yes
+    upgrade: yes
+  async: 6400
+  poll: 5
+
+- name: Install locale-en packages
+  apt:
+    name: language-pack-en
+    state: present
+  async: 6400
+  poll: 5
+
+- name: Remove old packages and dependencies.
+  apt:
+    autoclean: yes
+    autoremove: yes
+  async: 6400
+  poll: 5
+
+# - name: Disable Swap
+#   shell: dphys-swapfile swapoff && dphys-swapfile uninstall && update-rc.d dphys-swapfile remove
+#   ignore_errors: True
+
+- name: Ensure US locale exists
+  locale_gen:
+    name: en_US.UTF-8
+    state: present
+  async: 6400
+  poll: 5

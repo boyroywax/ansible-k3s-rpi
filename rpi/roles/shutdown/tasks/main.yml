@@ -1,0 +1,3 @@
+---
+- name: reboot to disable remaining k3s processes
+  shell: "shutdown"

@@ -1,0 +1,54 @@
+---
+
+- name: Disable K3s-agent service
+  systemd:
+    name: k3s-agent
+    state: stopped
+  when: inventory_hostname in groups['node']
+  register: chronyd_service_result
+  failed_when: "chronyd_service_result is failed and 'Could not find the requested service' not in chronyd_service_result.msg"
+
+- name: Disable K3s service
+  systemd:
+    name: k3s
+    state: stopped
+  when: inventory_hostname in groups['master']
+  register: chronyd_service_result
+  failed_when: "chronyd_service_result is failed and 'Could not find the requested service' not in chronyd_service_result.msg"
+
+- name: Reload systemd daemon to ensure latest service config
+  systemd:
+    daemon_reload: yes
+
+- name: Delete k3s if already present
+  file:
+    path: /usr/local/bin/k3s
+    state: absent
+  async: 6400
+  poll: 5
+
+- name: Delete k3s-agent service if already present
+  file:
+    path: "{{ systemd_dir }}/k3s-agent.service"
+    state: absent
+  async: 6400
+  poll: 5
+
+- name: Reload systemd daemon to ensure latest service config
+  systemd:
+    daemon_reload: yes
+  async: 6400
+  poll: 5
+
+- name: reboot to disable remaining k3s processes
+  reboot:
+    reboot_timeout: 1200
+  when: ( full_clean_install == True )
+
+- name: Delete previous k3s directory
+  file:
+    path: /var/lib/rancher/k3s
+    state: absent
+  when: ( full_clean_install == True )
+  async: 6400
+  poll: 5

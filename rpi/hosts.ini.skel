@@ -1,0 +1,12 @@
+[master]
+k3s-master ansible_host=192.168.0.100 
+
+[node]
+k3s-worker-01
+k3s-worker-02
+k3s-worker-03
+k3s-worker-04
+
+[k3s-cluster:children]
+master
+node

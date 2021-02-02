@@ -1,0 +1,6 @@
+k3s_version: v1.19.4+k3s2
+ansible_user: atomicpi # Atomic pi user
+ansible_sudo_pass: boyroy # Atomic pi sudo password
+full_clean_install: True # Removes files from /var/lib/rancher/k3s
+systemd_dir: /etc/systemd/system # System directory for atomic pi
+master_ip: 192.168.0.12 # IP of master atomic pi

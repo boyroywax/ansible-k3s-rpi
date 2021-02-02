@@ -1,0 +1,13 @@
+---
+
+- hosts: node
+  gather_facts: yes
+  become: yes
+  roles:
+    - { role: shutdown }
+
+- hosts: master
+  gather_facts: yes
+  become: yes
+  roles:
+    - { role: shutdown }
