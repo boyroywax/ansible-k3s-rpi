@@ -4,6 +4,6 @@
 /ansible/files/
 /ansible-odroid
 do.yml
-ansible-k3s-rpi/atomicpi/files/k3s.yml
-ansible-k3s-rpi/rpi/files/k3s.yml
-ansible-k3s-rpi/odroid/files/k3s.yml
+atomicpi/files/k3s.yml
+rpi/files/k3s.yml
+odroid/files/k3s.yml
