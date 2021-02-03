@@ -25,6 +25,7 @@
     line: '\1 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory'
     backrefs: true
   when: ( ansible_facts.architecture is search "arm" )
+  ignore_errors: True
 
 - name: Disable Swap
   shell: dphys-swapfile swapoff && dphys-swapfile uninstall && update-rc.d dphys-swapfile remove
@@ -35,3 +36,4 @@
     path: /boot/config.txt
     line: 'gpu_mem=16'
     create: yes
+  ignore_errors: True
