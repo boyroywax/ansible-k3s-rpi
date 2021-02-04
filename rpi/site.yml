@@ -4,7 +4,7 @@
   gather_facts: yes
   become: yes
   roles:
-    # - { role: clean }
+    - { role: clean }
     - { role: update }
     - { role: download }
 
